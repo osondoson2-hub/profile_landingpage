@@ -57,10 +57,9 @@ if (canvas) {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロゴゾドボポヴッン';
-    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     const nums = '0123456789';
-    const alphabet = katakana + latin + nums;
+    const alphabet = latin + nums;
 
     const fontSize = 16;
     let columns = canvas.width / fontSize;
