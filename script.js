@@ -62,11 +62,12 @@ if (canvas) {
     const alphabet = latin + nums;
 
     const fontSize = 16;
-    let columns = canvas.width / fontSize;
+    const columnWidth = 32; // Widen the gap between columns
+    let columns = canvas.width / columnWidth;
     let rainDrops = [];
     
     const initRain = () => {
-        columns = canvas.width / fontSize;
+        columns = canvas.width / columnWidth;
         rainDrops = [];
         for( let x = 0; x < columns; x++ ) {
             rainDrops[x] = 1;
@@ -94,7 +95,7 @@ if (canvas) {
                 ctx.fillStyle = '#00ff88';
             }
             
-            ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+            ctx.fillText(text, i * columnWidth, rainDrops[i] * fontSize);
             
             if(rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                 rainDrops[i] = 0;
@@ -103,5 +104,5 @@ if (canvas) {
         }
     };
 
-    setInterval(draw, 30);
+    setInterval(draw, 60); // Slow down speed by 50% (was 30)
 }
