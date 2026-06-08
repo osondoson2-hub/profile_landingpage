@@ -43,3 +43,66 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Matrix Digital Rain Effect
+const canvas = document.getElementById('matrix-canvas');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    
+    // Resize canvas to fit hero section
+    const resizeCanvas = () => {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロゴゾドボポヴッン';
+    const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const nums = '0123456789';
+    const alphabet = katakana + latin + nums;
+
+    const fontSize = 16;
+    let columns = canvas.width / fontSize;
+    let rainDrops = [];
+    
+    const initRain = () => {
+        columns = canvas.width / fontSize;
+        rainDrops = [];
+        for( let x = 0; x < columns; x++ ) {
+            rainDrops[x] = 1;
+        }
+    };
+    initRain();
+    window.addEventListener('resize', initRain);
+
+    const draw = () => {
+        ctx.fillStyle = 'rgba(11, 15, 25, 0.05)'; // Fade effect
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = '#00ff88'; // Neon green text
+        ctx.font = fontSize + 'px monospace';
+
+        for(let i = 0; i < rainDrops.length; i++) {
+            const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+            
+            // Randomize brightness for some characters to add depth
+            if(Math.random() > 0.98) {
+                ctx.fillStyle = '#ffffff';
+            } else if(Math.random() > 0.95) {
+                ctx.fillStyle = '#00b8ff'; // secondary neon
+            } else {
+                ctx.fillStyle = '#00ff88';
+            }
+            
+            ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+            
+            if(rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                rainDrops[i] = 0;
+            }
+            rainDrops[i]++;
+        }
+    };
+
+    setInterval(draw, 30);
+}

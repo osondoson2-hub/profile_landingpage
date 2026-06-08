@@ -190,6 +190,17 @@ nav ul {
     overflow: hidden;
 }
 
+#matrix-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
 .hero-content {
     max-width: 900px;
     position: relative;
