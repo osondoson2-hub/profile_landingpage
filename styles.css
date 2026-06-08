@@ -129,6 +129,19 @@ p {
     color: var(--primary-neon);
 }
 
+.btn-kakao {
+    background-color: #FEE500;
+    color: #381E1F;
+    box-shadow: 0 0 20px rgba(254, 229, 0, 0.3);
+}
+
+.btn-kakao:hover {
+    background-color: #ffdc00;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(254, 229, 0, 0.5);
+    color: #381E1F;
+}
+
 .btn-large {
     padding: 18px 48px;
     font-size: 1.25rem;
@@ -258,6 +271,38 @@ nav ul {
 .hero-buttons .btn {
     width: 100%;
     max-width: 300px;
+}
+
+/* Hero Small Kakao Button */
+.hero-kakao-btn {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background-color: #FEE500;
+    color: #381E1F;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(254, 229, 0, 0.4);
+    z-index: 20;
+    animation: kakaoBounce 2s infinite ease-in-out;
+    transition: var(--transition);
+}
+
+.hero-kakao-btn:hover {
+    background-color: #ffdc00;
+    transform: scale(1.05);
+    animation: none;
+}
+
+@keyframes kakaoBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .hero-shapes {
