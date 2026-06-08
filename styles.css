@@ -30,7 +30,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -121,7 +121,7 @@ header.scrolled {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
@@ -141,10 +141,7 @@ header.scrolled {
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
-    gap: 40px;
-    align-items: center;
+    display: none; /* Hide standard nav on vertical mode */
 }
 
 nav a {
@@ -223,14 +220,14 @@ nav a:hover::after {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     letter-spacing: -0.03em;
     margin-bottom: 24px;
     color: var(--text-main);
 }
 
 .hero p.slogan {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
     color: var(--accent-color);
     margin-bottom: 16px;
@@ -246,7 +243,8 @@ nav a:hover::after {
 
 .hero-buttons {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 16px;
     justify-content: center;
 }
 
@@ -306,8 +304,8 @@ nav a:hover::after {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
+    grid-template-columns: 1fr;
+    gap: 60px;
     align-items: center;
 }
 
@@ -390,7 +388,7 @@ nav a:hover::after {
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 32px;
 }
 
